@@ -1,0 +1,422 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+     :root {
+        --envelop-backgroun-color: rgba(0, 0, 0, 0.3);
+        --text-color: rgb(252, 234, 133);
+        --envelop-site-color: rgb(204, 36, 39);
+        ;
+        --open-envelop: rgb(222, 99, 101);
+        ;
+        --envelope-background-site: rgb(40, 183, 188);
+    }
+    
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        scroll-behavior: none;
+    }
+    /* h1 {
+        z-index: 10;
+        color: var(--text-color);
+        position: relative;
+        font-size: 2.6rem;
+        text-align: center;
+        padding: 10px 10px;
+        text-transform: uppercase;
+        margin-top: 60px;
+        box-shadow: 10px 10px 30px rgba(23, 23, 23, 0.7);
+        border-radius: 10px;
+        text-shadow: 1px 3px #000000;
+        font-style: italic;
+    } */
+    
+    img {
+        position: fixed;
+        top: 0px;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: fit;
+        background-size: cover;
+    }
+    
+    .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    h3 {
+        text-align: center;
+        color: #333;
+        font-size: 1.4rem;
+    }
+    
+    p {
+        text-align: center;
+        color: #333;
+        font-size: 1.1rem;
+        padding: 20px 10px;
+    }
+    
+    .letter-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 600px;
+        max-width: 800px;
+    }
+    
+    .envelop-wrapper {
+        position: relative;
+        width: 400px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        z-index: 5;
+    }
+    
+    .envelope {
+        border-radius: 25px;
+        background-color: wheat;
+        box-shadow: 10px 10px 30px rgba(23, 23, 23, 0.7);
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border: 1px solid var(--envelop-color);
+    }
+    
+    .envelope-open {
+        position: absolute;
+        border-top: 170px solid var(--open-envelop);
+        border-right: 200px solid transparent;
+        border-left: 200px solid transparent;
+        top: 0;
+        transform-origin: top;
+        border-radius: 60px;
+        margin-top: 10px;
+        z-index: 3;
+        transition: transform 0.25s linear;
+    }
+    
+    .envelope::after {
+        content: '';
+        position: absolute;
+        border-bottom: 100px solid var(--open-envelop);
+        border-right: 190px solid var(--envelop-site-color);
+        border-left: 190px solid var(--envelop-site-color);
+        border-top: 160px solid transparent;
+        z-index: 12;
+        bottom: 0;
+        transform-origin: bottom;
+        border-radius: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        z-index: 5;
+    }
+    
+    .letter {
+        width: 90%;
+        /* height: 90%; */
+        background-image: url(./img/happy-birthday-5042779_1280.jpg);
+        border-radius: 10px;
+        transition: all 3s;
+        padding: 20px 10px;
+        box-shadow: 0 0 10px rgb(46, 44, 44);
+        position: absolute;
+        bottom: 1px;
+        z-index: 1;
+        opacity: 0;
+        object-fit: fit;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    
+    .heart {
+        width: 80px;
+        height: 50px;
+        transition: all 3s ease-in-out;
+        animation: heartBeat 1.3s linear infinite;
+        cursor: pointer;
+        z-index: 5;
+        position: absolute;
+        left: 39%;
+        top: 43%;
+        transition: all 3s;
+    }
+    /*  position: absolute;
+    left: 39%;
+    top: 43%; */
+    
+    .heart:before,
+    .heart:after {
+        position: absolute;
+        content: '';
+        left: 35px;
+        top: 0;
+        width: 30px;
+        height: 40px;
+        background: rgb(226, 235, 177);
+        border-radius: 30px 30px 0 0;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+        border-right: 4px solid wheat;
+        cursor: pointer;
+        z-index: 5;
+        box-shadow: 3px 3px 4px black;
+        transition: all 3s;
+    }
+    
+    .heart:after {
+        left: 15px;
+        bottom: 10px;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+        cursor: pointer;
+        z-index: 5;
+        height: 52px;
+    }
+    
+    @keyframes heartBeat {
+        from {
+            transform: scale(0.6);
+        }
+        to {
+            transform: scale(0.9);
+        }
+    }
+    
+    @media screen and (min-width: 1400px) {
+        body {
+            display: none;
+        }
+    }
+    
+    @keyframes heartBeatClose {
+        from {
+            transform: scale(0.9);
+            transition: all 3s;
+        }
+        to {
+            transform: scale(0.6);
+            transition: all 3s;
+        }
+    }
+    
+    @media screen and (max-width: 550px) {
+        .envelope {
+            width: 90%;
+            height: 240px;
+        }
+        img {
+            object-fit: cover;
+        }
+        .envelope-open {
+            border-top: 115px solid var(--envelop-site-color);
+            border-right: 170px solid transparent;
+            border-left: 170px solid transparent;
+            border-radius: 40px;
+            transition: transform 0.25s linear;
+        }
+        .envelope::after {
+            border-bottom: 100px solid var(--envelop-site-color);
+            border-right: 165px solid var(--open-envelop);
+            border-left: 165px solid var(--open-envelop);
+            border-top: 110px solid transparent;
+            border-radius: 20px;
+            box-shadow: 2px 2px rgb(48, 48, 48);
+        }
+        .letter {
+            width: 85%;
+            height: 85%;
+            position: relative;
+        }
+        .colorL {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 5px;
+            z-index: -2;
+        }
+        h3 {
+            color: #333;
+        }
+        p {
+            color: #000000;
+            padding: 30px 20px;
+            z-index: 3;
+            font-size: 1.4rem;
+            text-shadow: -3px 3px 4px #b3a6a6;
+            z-index: 7;
+            font-style: italic;
+        }
+        h1 {
+            font-size: 1.9rem;
+            margin-top: 0px;
+        }
+        span {
+            position: absolute;
+            bottom: 45px;
+            right: 40px;
+        }
+    }
+    /* Na samsung Fold */
+    
+    @media screen and (max-width: 390px) {
+        .letter-container {
+            width: 70%;
+        }
+        .envelope {
+            width: 70%;
+            height: 220px;
+        }
+        .envelope-open {
+            border-top: 115px solid var(--envelop-site-color);
+            border-right: 130px solid transparent;
+            border-left: 130px solid transparent;
+            border-radius: 30px;
+            transition: transform 0.25s linear;
+        }
+        .envelope::after {
+            border-bottom: 95px solid var(--envelop-site-color);
+            border-right: 130px solid var(--open-envelop);
+            border-left: 130px solid var(--open-envelop);
+            border-top: 95px solid transparent;
+            border-radius: 20px;
+        }
+        .letter {
+            width: 85%;
+        }
+        h3 {
+            color: #333;
+            padding: 0;
+        }
+        p {
+            color: #333;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin-top: 0px;
+        }
+    }
+    
+    @media screen and (width: 280px) {
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            object-fit: cover;
+        }
+        .envelope {
+            width: 60%;
+            height: 180px;
+        }
+        .envelope-open {
+            border-top: 90px solid rgb(219, 121, 17);
+            border-right: 110px solid transparent;
+            border-left: 110px solid transparent;
+            border-radius: 30px;
+            transition: transform 0.25s linear;
+        }
+        .envelope::after {
+            border-bottom: 65px solid rgba(239, 129, 20, 084);
+            border-right: 110px solid rgba(239, 129, 20, 0.84);
+            border-left: 110px solid rgba(239, 129, 20, 0.84);
+            border-top: 95px solid transparent;
+            border-radius: 20px;
+        }
+        .letter {
+            width: 85%;
+        }
+        h3 {
+            color: #333;
+            padding: 0;
+        }
+        p {
+            color: #333;
+        }
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+    /* Koniec samsung fold */
+    
+    .active {
+        bottom: 130px;
+        transition: all 3s;
+        display: flex;
+        z-index: 4;
+        opacity: 1;
+    }
+    
+    .heart-active {
+        position: absolute;
+        left: 11%;
+        top: 63%;
+        animation: heartBeatClose 3s infinite;
+        transition: all 3s;
+        transition-delay: 0.2s;
+    }
+    
+    .change {
+        display: flex;
+        transition: all 2.5s;
+        transform: translateY(-120px);
+        opacity: 0;
+    }
+    
+    .changeTwo {
+        transition: all 5s;
+        transition-delay: 1.4s;
+    }
+    
+    .open {
+        transform: rotateX(180deg);
+        transition-delay: 0.4s;
+        top: -10px;
+        transition: all 0.4s;
+    }
+    
+    .close {
+        transform: rotateX(0deg);
+        transition-delay: 2s;
+        top: 0;
+    }
+    
+    .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: gold;
+        z-index: 5;
+        border: 1px solid rgb(8, 8, 8);
+        box-shadow: 0px 10px 10px black;
+        cursor: pointer;
+        position: relative;
+        top: 0;
+    }
+    
+    .active-heart {
+        transition-delay: 1.2s;
+    }
