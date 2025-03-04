@@ -19,6 +19,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        height: 100vh;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         scroll-behavior: none;
     }
@@ -41,8 +42,8 @@
         position: fixed;
         top: 0px;
         left: 0;
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         object-fit: fit;
         background-size: cover;
     }
@@ -73,8 +74,6 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        height: 600px;
-        max-width: 800px;
     }
     
     .envelop-wrapper {
@@ -130,6 +129,11 @@
         margin-right: 10px;
         margin-bottom: 10px;
         z-index: 5;
+    }
+    
+    .letter-container {
+        position: absolute;
+        bottom: 152px;
     }
     
     .letter {
